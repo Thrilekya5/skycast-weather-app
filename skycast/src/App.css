@@ -1,0 +1,320 @@
+/* ---------- Global app layout ---------- */
+
+#root {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #f8fafc;
+  background: #071426;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 32px 6%;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(37, 99, 235, 0.25), transparent 32%),
+    radial-gradient(circle at 85% 75%, rgba(14, 165, 233, 0.16), transparent 30%),
+    linear-gradient(135deg, #071426, #0b1d35 55%, #102a48);
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  max-width: 1100px;
+  margin: 0 auto 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.header p {
+  margin: 6px 0 0;
+  color: #a9bfd8;
+  font-size: 14px;
+}
+
+.header button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+
+.header button:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ---------- Search ---------- */
+
+.search {
+  max-width: 700px;
+  margin: 0 auto 28px;
+  display: flex;
+  gap: 12px;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px 18px;
+  border: 1px solid rgba(191, 219, 254, 0.2);
+  border-radius: 14px;
+  outline: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.search input::placeholder {
+  color: #91a8c3;
+}
+
+.search input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12);
+}
+
+.search button {
+  padding: 0 24px;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+}
+
+.search button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.app > p {
+  text-align: center;
+  color: #c4d7eb;
+}
+
+/* ---------- Current weather card ---------- */
+
+.weather-card {
+  max-width: 700px;
+  margin: 25px auto;
+  padding: 30px;
+  border: 1px solid rgba(191, 219, 254, 0.18);
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.2),
+    rgba(14, 165, 233, 0.08)
+  );
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.weather-card h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.weather-card h1 {
+  margin: 12px 0;
+  font-size: 64px;
+  letter-spacing: -3px;
+}
+
+.weather-card h3 {
+  margin-top: 25px;
+  color: #bfdbfe;
+}
+
+.weather-card p {
+  color: #c4d7eb;
+  line-height: 1.6;
+}
+
+/* ---------- 5-day forecast ---------- */
+
+.forecast {
+  max-width: 1100px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.forecast > h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.forecast-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.forecast-card {
+  padding: 20px 12px;
+  border: 1px solid rgba(191, 219, 254, 0.15);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  transition: 0.2s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.forecast-card h3 {
+  margin: 0;
+  color: #bfdbfe;
+  font-size: 15px;
+}
+
+.forecast-card p {
+  color: #e2e8f0;
+}
+
+/* ---------- Login and signup ---------- */
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  margin: 55px auto;
+  padding: 32px;
+  border: 1px solid rgba(191, 219, 254, 0.18);
+  border-radius: 22px;
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.auth-card input {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 14px;
+  border: 1px solid rgba(191, 219, 254, 0.2);
+  border-radius: 11px;
+  outline: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.auth-card input::placeholder {
+  color: #91a8c3;
+}
+
+.auth-card input:focus {
+  border-color: #60a5fa;
+}
+
+.auth-card > button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  border: none;
+  border-radius: 11px;
+  color: white;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+}
+
+.auth-card > button:hover {
+  filter: brightness(1.08);
+}
+
+.auth-card p {
+  color: #b8cbe0;
+  font-size: 14px;
+}
+
+.auth-card .text-button {
+  width: auto;
+  padding: 4px;
+  border: none;
+  color: #7dd3fc;
+  background: transparent;
+}
+
+.auth-card .demo-login {
+  margin-top: 24px;
+  padding: 10px;
+  border-radius: 8px;
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.1);
+  font-size: 12px;
+}
+
+/* ---------- Responsive layout ---------- */
+
+@media (max-width: 750px) {
+  .app {
+    padding: 24px 5%;
+  }
+
+  .forecast-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .weather-card {
+    padding: 24px;
+  }
+
+  .weather-card h1 {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .search {
+    flex-direction: column;
+  }
+
+  .search button {
+    padding: 14px;
+  }
+
+  .auth-card {
+    padding: 24px;
+  }
+}
