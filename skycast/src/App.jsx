@@ -125,28 +125,37 @@ function App() {
   }
 
   function handleLogin() {
-    const foundUser = users.find(
-      (user) =>
-        user.email.toLowerCase() === email.toLowerCase() &&
-        user.password === password
-    );
+  const foundUser = users.find(
+    (user) =>
+      user.email.toLowerCase() === email.toLowerCase() &&
+      user.password === password
+  );
 
-    if (foundUser) {
-      setLoggedInUser(foundUser);
-      setAuthMessage("");
-    } else {
-      setAuthMessage("Invalid email or password.");
-    }
-  }
-
-  function handleLogout() {
-    setLoggedInUser(null);
-    setEmail("");
-    setPassword("");
+  if (foundUser) {
+    // Clear previous user's weather data
+    setCity("");
     setWeather(null);
     setMessage("");
-  }
 
+    setLoggedInUser(foundUser);
+    setAuthMessage("");
+  } else {
+    setAuthMessage("Invalid email or password.");
+  }
+}
+  function handleLogout() {
+  setLoggedInUser(null);
+
+  setEmail("");
+  setPassword("");
+
+  // Clear weather information
+  setCity("");
+  setWeather(null);
+  setMessage("");
+
+  setAuthMessage("");
+}
   async function searchWeather() {
     if (city.trim() === "") {
       setMessage("Please enter a city name.");
@@ -212,7 +221,7 @@ function App() {
           <p>
             {isSignup
               ? "Sign up to explore weather around the world."
-              : "Login to check your local weather."}
+              : "Login to explore weather conditions for any city"}
           </p>
 
           {isSignup && (
@@ -258,9 +267,7 @@ function App() {
             </button>
           </p>
 
-          <p className="demo-login">
-            Demo Admin: admin@skycast.com / admin123
-          </p>
+          
         </div>
       </div>
     );
@@ -319,7 +326,7 @@ function App() {
       <div className="search">
         <input
           type="text"
-          placeholder="Enter city name"
+          placeholder="Search for a place or city"
           value={city}
           onChange={(e) => setCity(e.target.value)}
           onKeyDown={(e) => {
