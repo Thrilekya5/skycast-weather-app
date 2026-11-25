@@ -1,7 +1,21 @@
-/* ---------- Global app layout ---------- */
 
-#root {
-  min-height: 100vh;
+/* =====================================
+   SKYCAST — FRESH SKY DESIGN SYSTEM
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --sky: #63b9ef;
+  --blue: #328ee5;
+  --purple: #8885ed;
+  --mint: #63cdb5;
+  --yellow: #ffd36e;
+  --coral: #ff9999;
+  --ink: #203b59;
+  --muted: #7189a2;
+  --white: #ffffff;
+  --border: #e1edf7;
 }
 
 * {
@@ -10,72 +24,164 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: #f8fafc;
-  background: #071426;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: #edf7ff;
 }
 
-button,
-input {
+#root {
+  min-height: 100vh;
+}
+
+button, input {
   font: inherit;
 }
 
 button {
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: 0.25s ease;
 }
+
+/* =====================================
+   BACKGROUND
+===================================== */
 
 .app {
   min-height: 100vh;
   padding: 32px 6%;
   background:
-    radial-gradient(circle at 15% 10%, rgba(37, 99, 235, 0.25), transparent 32%),
-    radial-gradient(circle at 85% 75%, rgba(14, 165, 233, 0.16), transparent 30%),
-    linear-gradient(135deg, #071426, #0b1d35 55%, #102a48);
+    radial-gradient(circle at 8% 10%, #d8f1ff 0, transparent 28%),
+    radial-gradient(circle at 92% 15%, #eee8ff 0, transparent 27%),
+    radial-gradient(circle at 85% 90%, #dcf8ef 0, transparent 30%),
+    linear-gradient(135deg, #f3faff, #eaf5ff 55%, #f7f6ff);
 }
 
-/* ---------- Header ---------- */
+/* =====================================
+   HEADER AND BRANDING
+===================================== */
 
 .header {
-  max-width: 1100px;
+  max-width: 1150px;
   margin: 0 auto 35px;
+  padding: 20px 26px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 15px;
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 22px;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 30px rgba(70,125,180,0.09);
 }
 
 .header h1 {
   margin: 0;
+  color: #2878bb;
+  font-family: 'Outfit', sans-serif;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -1px;
 }
 
+.header h1::after {
+  content: " ✦";
+  color: #f2b94b;
+  font-size: 19px;
+}
+
 .header p {
-  margin: 6px 0 0;
-  color: #a9bfd8;
+  margin: 5px 0 0;
+  color: var(--muted);
   font-size: 14px;
 }
 
 .header button {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.08);
-  color: #f8fafc;
-  padding: 10px 18px;
-  border-radius: 10px;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(120deg, #398fe1, #56c3df);
+  font-weight: 700;
+  box-shadow: 0 5px 14px rgba(56,145,220,0.2);
 }
 
 .header button:hover {
-  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(56,145,220,0.3);
 }
 
-/* ---------- Search ---------- */
+/* =====================================
+   ADMIN DASHBOARD
+===================================== */
+
+.app:has(.weather-card h3) .header {
+  max-width: 1250px;
+  border-bottom: 3px solid #78c9ee;
+}
+
+.app:has(.weather-card h3) .weather-card {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 34px;
+  border: 1px solid white;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.88);
+  box-shadow: 0 12px 40px rgba(75,130,180,0.10);
+}
+
+.app:has(.weather-card h3) .weather-card > h2 {
+  margin: 0 0 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+  color: #2878bb;
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+}
+
+.app:has(.weather-card h3) .weather-card h3 {
+  margin: 30px 0 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border-left: 4px solid #55b7e9;
+  color: #315b80;
+  background: #eaf6ff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+}
+
+.app:has(.weather-card h3) .weather-card p {
+  margin: 9px 0;
+  padding: 13px 17px;
+  border: 1px solid #e7eff8;
+  border-radius: 12px;
+  background: #f8fbff;
+  color: #627e9b;
+  font-size: 14px;
+  line-height: 1.6;
+  transition: 0.2s ease;
+}
+
+.app:has(.weather-card h3) .weather-card p:hover {
+  background: #eaf6ff;
+  border-color: #b9ddf6;
+  transform: translateX(3px);
+}
+
+.app:has(.weather-card h3) .weather-card hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px dashed #cbdfee;
+}
+
+/* =====================================
+   SEARCH BAR
+===================================== */
 
 .search {
-  max-width: 700px;
-  margin: 0 auto 28px;
+  max-width: 750px;
+  margin: 0 auto 30px;
   display: flex;
   gap: 12px;
 }
@@ -83,208 +189,261 @@ button {
 .search input {
   flex: 1;
   min-width: 0;
-  padding: 15px 18px;
-  border: 1px solid rgba(191, 219, 254, 0.2);
-  border-radius: 14px;
+  padding: 16px 19px;
+  border: 1px solid #d8e9f6;
+  border-radius: 15px;
   outline: none;
-  color: white;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+  color: var(--ink);
+  background: white;
+  box-shadow: 0 5px 18px rgba(75,130,180,0.06);
 }
 
 .search input::placeholder {
-  color: #91a8c3;
+  color: #9aafc3;
 }
 
 .search input:focus {
-  border-color: #60a5fa;
-  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12);
+  border-color: var(--sky);
+  box-shadow: 0 0 0 4px rgba(99,185,239,0.15);
 }
 
 .search button {
-  padding: 0 24px;
+  padding: 0 27px;
   border: none;
-  border-radius: 14px;
+  border-radius: 15px;
   color: white;
-  font-weight: 600;
-  background: linear-gradient(135deg, #3b82f6, #0ea5e9);
-  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+  background: linear-gradient(120deg, #398fe1, #56c3df);
+  font-weight: 700;
+  box-shadow: 0 7px 18px rgba(56,145,220,0.2);
 }
 
 .search button:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.08);
+  transform: translateY(-2px);
+  filter: brightness(1.06);
 }
 
 .app > p {
+  color: #66829e;
   text-align: center;
-  color: #c4d7eb;
 }
 
-/* ---------- Current weather card ---------- */
+/* =====================================
+   CURRENT WEATHER CARD
+===================================== */
 
 .weather-card {
-  max-width: 700px;
-  margin: 25px auto;
-  padding: 30px;
-  border: 1px solid rgba(191, 219, 254, 0.18);
-  border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.2),
-    rgba(14, 165, 233, 0.08)
-  );
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(18px);
+  max-width: 750px;
+  margin: 28px auto;
+  padding: 35px;
+  border: 1px solid white;
+  border-radius: 25px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255,255,255,0.65), transparent 35%),
+    linear-gradient(135deg, #d8f0ff, #e8e8ff 65%, #e0f8f0);
+  box-shadow: 0 12px 35px rgba(75,130,180,0.12);
 }
 
 .weather-card h2 {
   margin: 0 0 8px;
-  font-size: 24px;
+  color: #326b9b;
+  font-family: 'Outfit', sans-serif;
+  font-size: 25px;
 }
 
 .weather-card h1 {
-  margin: 12px 0;
-  font-size: 64px;
+  margin: 18px 0;
+  color: #286da9;
+  font-family: 'Outfit', sans-serif;
+  font-size: 66px;
   letter-spacing: -3px;
 }
 
-.weather-card h3 {
-  margin-top: 25px;
-  color: #bfdbfe;
-}
-
 .weather-card p {
-  color: #c4d7eb;
-  line-height: 1.6;
+  color: #587a99;
+  line-height: 1.7;
 }
 
-/* ---------- 5-day forecast ---------- */
+/* =====================================
+   FORECAST
+===================================== */
 
 .forecast {
-  max-width: 1100px;
-  margin: 40px auto;
+  max-width: 1150px;
+  margin: 45px auto;
   text-align: center;
 }
 
 .forecast > h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin-bottom: 24px;
+  color: #356d9d;
+  font-family: 'Outfit', sans-serif;
+  font-size: 26px;
 }
 
 .forecast-list {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
+  gap: 15px;
 }
 
 .forecast-card {
-  padding: 20px 12px;
-  border: 1px solid rgba(191, 219, 254, 0.15);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(12px);
-  transition: 0.2s ease;
+  padding: 22px 12px;
+  border: 1px solid white;
+  border-radius: 19px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 7px 22px rgba(75,130,180,0.07);
+  transition: 0.25s ease;
+}
+
+.forecast-card:nth-child(1) {
+  border-top: 4px solid #65b8ed;
+}
+
+.forecast-card:nth-child(2) {
+  border-top: 4px solid #9d9aef;
+}
+
+.forecast-card:nth-child(3) {
+  border-top: 4px solid #f6c96b;
+}
+
+.forecast-card:nth-child(4) {
+  border-top: 4px solid #6acdb5;
+}
+
+.forecast-card:nth-child(5) {
+  border-top: 4px solid #f49eae;
 }
 
 .forecast-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.11);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(75,130,180,0.14);
 }
 
 .forecast-card h3 {
-  margin: 0;
-  color: #bfdbfe;
+  color: #3975a7;
   font-size: 15px;
 }
 
 .forecast-card p {
-  color: #e2e8f0;
+  color: #67839d;
+  font-size: 13px;
 }
 
-/* ---------- Login and signup ---------- */
+/* =====================================
+   LOGIN AND SIGNUP
+===================================== */
 
 .auth-card {
   width: 100%;
-  max-width: 420px;
-  margin: 55px auto;
-  padding: 32px;
-  border: 1px solid rgba(191, 219, 254, 0.18);
-  border-radius: 22px;
-  color: #f8fafc;
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(18px);
+  max-width: 430px;
+  margin: 60px auto;
+  padding: 38px;
+  border: 1px solid white;
+  border-radius: 25px;
+  color: var(--ink);
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 18px 50px rgba(75,130,180,0.13);
   text-align: center;
 }
 
 .auth-card h2 {
-  margin-top: 0;
-  margin-bottom: 24px;
+  margin: 0 0 12px;
+  color: #347db6;
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
 }
 
 .auth-card input {
   display: block;
   width: 100%;
-  margin: 12px 0;
-  padding: 14px;
-  border: 1px solid rgba(191, 219, 254, 0.2);
-  border-radius: 11px;
+  margin: 14px 0;
+  padding: 15px;
+  border: 1px solid #dceaf5;
+  border-radius: 12px;
   outline: none;
-  color: white;
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  background: #f7fbff;
 }
 
 .auth-card input::placeholder {
-  color: #91a8c3;
+  color: #98acc0;
 }
 
 .auth-card input:focus {
-  border-color: #60a5fa;
+  border-color: var(--sky);
+  box-shadow: 0 0 0 4px rgba(99,185,239,0.13);
 }
 
 .auth-card > button {
   width: 100%;
-  margin-top: 10px;
-  padding: 13px;
+  margin-top: 13px;
+  padding: 15px;
   border: none;
-  border-radius: 11px;
+  border-radius: 12px;
   color: white;
-  font-weight: 600;
-  background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+  background: linear-gradient(120deg, #398fe1, #56c3df);
+  font-weight: 700;
+  box-shadow: 0 7px 18px rgba(56,145,220,0.18);
 }
 
 .auth-card > button:hover {
-  filter: brightness(1.08);
+  transform: translateY(-2px);
+  filter: brightness(1.06);
 }
 
 .auth-card p {
-  color: #b8cbe0;
+  color: #7189a2;
   font-size: 14px;
+  line-height: 1.6;
 }
 
 .auth-card .text-button {
   width: auto;
   padding: 4px;
   border: none;
-  color: #7dd3fc;
+  color: #398fe1;
   background: transparent;
+  font-weight: 700;
 }
 
 .auth-card .demo-login {
   margin-top: 24px;
-  padding: 10px;
-  border-radius: 8px;
-  color: #93c5fd;
-  background: rgba(59, 130, 246, 0.1);
+  padding: 12px;
+  border-radius: 10px;
+  color: #4387bd;
+  background: #e9f5ff;
   font-size: 12px;
 }
 
-/* ---------- Responsive layout ---------- */
+/* =====================================
+   SCROLLBAR
+===================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #edf7ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b6d9ef;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #65b8ed;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
 
 @media (max-width: 750px) {
   .app {
-    padding: 24px 5%;
+    padding: 22px 4%;
   }
 
   .forecast-list {
@@ -297,6 +456,10 @@ button {
 
   .weather-card h1 {
     font-size: 52px;
+  }
+
+  .app:has(.weather-card h3) .weather-card {
+    padding: 22px;
   }
 }
 
@@ -315,6 +478,6 @@ button {
   }
 
   .auth-card {
-    padding: 24px;
+    padding: 25px;
   }
 }
